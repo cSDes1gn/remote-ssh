@@ -21,10 +21,7 @@ This setup is for the target machine for ssh requests.
 ```bash
 git clone https://github.com/cSDes1gn/remote-ssh
 cd remote-ssh
-```
-Run the script specifying the external port number you chose in the forwarding rule (here I chose 2022):
-```bash
-./host-setup 2022
+./host-setup
 ```
 This script will yield 2 outputs (highlighted in blue) that are crucial for client configuration:
 1. USERNAME (Host username)
@@ -33,7 +30,7 @@ This script will yield 2 outputs (highlighted in blue) that are crucial for clie
 Have these on hand for the next step.
 
 ### Client Configuration
-This setup is for the machine you are connecting with.
+This setup is for the machine you are connecting with To start, disconnect from your router on the client machine and connect to a mobile hotspot or another access point outside your LAN:
 ```bash
 git clone https://github.com/cSDes1gn/remote-ssh
 cd remote-ssh
@@ -43,8 +40,7 @@ Run the script specifying the external port number you chose in the forwarding r
 ./client-setup 2022 christian 64.200.12.32
 ```
 
-Once complete, disconnect from your router on the client machine and connect to your mobile hotspot or another access point outside your LAN and try connnecting to your host machine:
-
+Try connnecting to your host machine:
 ```bash
 ssh -p PORT USERNAME@IP
 ```
