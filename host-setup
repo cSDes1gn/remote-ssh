@@ -6,7 +6,7 @@ ENDC='\033[0m'
 
 set -e
 
-echo -e "Initializing host setup service"
+echo "Initializing host setup service"
 echo "Installing dependancies ..."
 sudo apt update
 xargs -a apt-packages.txt sudo apt install -y
