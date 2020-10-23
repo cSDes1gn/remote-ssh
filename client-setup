@@ -18,13 +18,13 @@ ip=$3
 echo "Initializing client setup service"
 echo "Checking for public RSA key ..."
 if [ -f ~/.ssh/id_rsa.pub ]; then
-    echo "Public RSA key found. Configuring with current RSA key."
+    echo "Public RSA key found. Configuring with local RSA key."
 else
     echo "Generating new ssh RSA key pair ..."
     ssh-keygen -t rsa
     echo -e "${OKGREEN} ✓ ${ENDC} complete"
 fi
 
-echo "Configuring ssh key pair with host."
+echo "Configuring ssh key pair with host ..."
 ssh -p "$port" "$user"@"$ip" "mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && chmod -R go= ~/.ssh && cat >> ~/.ssh/authorized_keys" < ~/.ssh/id_rsa.pub
 echo -e "${OKGREEN} ✓ ${ENDC} complete"
