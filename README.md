@@ -13,3 +13,14 @@ When creating the port forwarding rule be sure to set the following options:
 4. Set the internal port to port `22`. This is the well-known port for ssh requests.
 
 Save the rule and visit [this](https://canyouseeme.org) website on the target machine. Enter `2022` for the port number and click *Check Port* to ensure that your ISP is routing the connection properly.
+
+## Quickstart
+
+On the host machine (i.e. the target machine for ssh):
+
+```bash
+git clone https://github.com/cSDes1gn/remote-ssh
+```
+
+```
+./host-setup
