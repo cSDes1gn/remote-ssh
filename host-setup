@@ -1,0 +1,27 @@
+#!/bin/bash
+
+OKGREEN='\033[92m'
+# WARNING='\033[93m'
+FAIL='\033[91m'
+OKBLUE='\033[94m'
+UNDERLINE='\033[4m'
+ENDC='\033[0m'
+
+set -e
+
+if [ $# -ne 1 ]; then
+    echo -e "$0": "${FAIL}Port number required. ${ENDC} i.e. $ ./host-setup 2022 "
+    exit 1
+fi
+port=$1
+echo -e "Initializing host setup service"
+echo "Installing dependancies ..."
+sudo apt update
+xargs -a apt-packages.txt sudo apt install -y
+echo -e "${OKGREEN} ✓ ${ENDC} complete"
+
+ip=$(curl ifconfig.me)
+echo -e "Public ip address: ${OKBLUE}"$ip"${ENDC}"
+echo "Configuring firewall for routing ssh requests ..."
+sudo ufw allow ssh
+echo -e "${OKGREEN} ✓ ${ENDC} complete"

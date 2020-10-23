@@ -1,0 +1,34 @@
+#!/bin/bash
+
+OKGREEN='\033[92m'
+FAIL='\033[91m'
+ENDC='\033[0m'
+
+set -e
+
+if [ $# -ne 1 ]; then
+    echo -e "$0": "${FAIL}Port number, username and public ip arguments required. ${ENDC} i.e. $ ./client-setup 2022 christian 64.200.12.45"
+    exit 1
+fi
+port=$1
+user=$2
+ip=$3
+
+echo "Initializing client setup service"
+echo "Checking for public RSA key ..."
+if [ -f ~/.ssh/id_rsa.pub ]; then
+    echo "Public RSA key found. Configuring with current RSA key."
+else
+    echo "Generating new ssh RSA key pair ..."
+    ssh-keygen -t rsa
+    echo -e "${OKGREEN} ✓ ${ENDC} complete"
+fi
+
+echo "Configuring ssh key pair with host."
+cat ~/.ssh/id_rsa.pub | ssh "$user"@"$ip" "mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && chmod -R go= ~/.ssh && cat >> ~/.ssh/authorized_keys"
+echo -e "${OKGREEN} ✓ ${ENDC} complete"
+
+# test ssh connection
+echo "Testing ssh connection ..."
+ssh -p "$port" "$user"@"$ip"
+echo -e "${OKGREEN} ✓ ${ENDC} complete"
