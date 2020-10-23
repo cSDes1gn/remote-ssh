@@ -6,10 +6,11 @@ ENDC='\033[0m'
 
 set -e
 
-if [ $# -ne 1 ]; then
+if [ $# -ne 3 ]; then
     echo -e "$0": "${FAIL}Port number, username and public ip arguments required. ${ENDC} i.e. $ ./client-setup 2022 christian 64.200.12.45"
     exit 1
 fi
+
 port=$1
 user=$2
 ip=$3
