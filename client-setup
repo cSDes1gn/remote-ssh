@@ -25,5 +25,5 @@ else
 fi
 
 echo "Configuring ssh key pair with host."
-cat ~/.ssh/id_rsa.pub | ssh "$user"@"$ip" "mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && chmod -R go= ~/.ssh && cat >> ~/.ssh/authorized_keys"
+ssh -p "$port" "$user"@"$ip" "mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && chmod -R go= ~/.ssh && cat >> ~/.ssh/authorized_keys" < ~/.ssh/id_rsa.pub
 echo -e "${OKGREEN} ✓ ${ENDC} complete"
