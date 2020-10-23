@@ -41,5 +41,5 @@ cat ~/.ssh/id_rsa.pub | ssh [username]@[remote_host] "mkdir -p ~/.ssh && touch ~
 ```
 3. We are now able to remotely connect to the system using the provided connection specification:
 ```bash
-ssh [username]@[remote_host]
+ssh -p 2022 [username]@[remote_host]
 ```
