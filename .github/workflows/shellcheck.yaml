@@ -17,8 +17,8 @@ jobs:
 
       - name: Install dependencies.
         run: |
-        sudo apt update
-        sudo apt install shellcheck -y
+          sudo apt update;
+          sudo apt install shellcheck -y
 
       - name: Run shellcheck linter.
         run: shellcheck client-setup host-setup
