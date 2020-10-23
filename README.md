@@ -1,4 +1,5 @@
 # Configuring Remote SSH
+[![Actions Status](https://github.com/cSDes1gn/remote-ssh/workflows/shellcheck/badge.svg)](https://github.com/cSDes1gn/remote-ssh/actions)
 
 ## Navigation
 1. [Setup](#setup)
