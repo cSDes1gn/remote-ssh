@@ -1,5 +1,11 @@
 # Configuring Remote SSH
 
+## Navigation
+1. [Setup](#setup)
+2. [Quickstart](#quickstart)
+3. [Manual Setup](/docs/setup.md)
+4. [License](/LICENSE)
+
 ## Why Remote SSH?
 With remote-ssh you can leverage the compute power of your desktop on your laptop from anywhere in the world. Follow this simple setup guide and get access to a headless version of your desktop OS.
 
