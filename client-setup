@@ -27,8 +27,3 @@ fi
 echo "Configuring ssh key pair with host."
 cat ~/.ssh/id_rsa.pub | ssh "$user"@"$ip" "mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && chmod -R go= ~/.ssh && cat >> ~/.ssh/authorized_keys"
 echo -e "${OKGREEN} ✓ ${ENDC} complete"
-
-# test ssh connection
-echo "Testing ssh connection ..."
-ssh -p "$port" "$user"@"$ip"
-echo -e "${OKGREEN} ✓ ${ENDC} complete"
