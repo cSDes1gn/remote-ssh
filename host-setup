@@ -20,8 +20,11 @@ sudo apt update
 xargs -a apt-packages.txt sudo apt install -y
 echo -e "${OKGREEN} ✓ ${ENDC} complete"
 
-ip=$(curl ifconfig.me)
-echo -e "Public ip address: ${OKBLUE}"$ip"${ENDC}"
 echo "Configuring firewall for routing ssh requests ..."
 sudo ufw allow ssh
 echo -e "${OKGREEN} ✓ ${ENDC} complete"
+
+ip=$(curl ifconfig.me)
+user="$USER"
+echo -e "Host Username: ${OKBLUE}"$user"${ENDC}"
+echo -e "Public ip address: ${OKBLUE}"$ip"${ENDC}"
